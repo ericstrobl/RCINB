@@ -26,7 +26,6 @@ for (i in 1:50){
   out <- RCI_NB(dataft,ncol(dataft),Ct/length(Ct),as.matrix(Xpt))
   out$order = seq_len(p)
   RCINB_res[[i]]$time = (proc.time() - ptm)[3]
-  RCINB_res[[i]]$RBO = eval_RBO(shapsT,out)
   RCINB_res[[i]]$RMSE = sqrt(mean((out$shaps-shapsT)^2))
   RCINB_res[[i]]$shaps = out$shaps
   
@@ -35,21 +34,18 @@ for (i in 1:50){
   out = RCI(datan,dataft[,p+1]); scores = matrix(0,n,p); scores[,out$order] = out$scores; out$order = seq_len(p)
   out$shaps = organize_shaps(scores,Xpt,dataft[,p+1])
   RCI_res[[i]]$time = (proc.time() - ptm)[3]
-  RCI_res[[i]]$RBO = eval_RBO(shapsT,out)
   RCI_res[[i]]$RMSE = sqrt(mean((out$shaps-shapsT)^2))
   RCI_res[[i]]$shaps = out$shaps
   
   ptm <- proc.time()
   out = GRCI_HNM(dataft[,-(p+1)],dataft[,p+1],Ct/length(Ct),as.matrix(Xpt)); outG = out; timeG = out$timeG
   GRCI_HNM_res[[i]]$time = (proc.time() - ptm)[3]
-  GRCI_HNM_res[[i]]$RBO = eval_RBO(shapsT,out)
   GRCI_HNM_res[[i]]$RMSE = sqrt(mean((out$shaps-shapsT)^2))
   GRCI_HNM_res[[i]]$shaps = out$shaps
   
   ptm <- proc.time()
   out = GRCI_ANM(dataft[,-(p+1)],dataft[,p+1],Ct/length(Ct),as.matrix(Xpt)); outG = out; timeG = out$timeG
   GRCI_ANM_res[[i]]$time = (proc.time() - ptm)[3]
-  GRCI_ANM_res[[i]]$RBO = eval_RBO(shapsT,out)
   GRCI_ANM_res[[i]]$RMSE = sqrt(mean((out$shaps-shapsT)^2))
   GRCI_ANM_res[[i]]$shaps = out$shaps
   
@@ -57,7 +53,6 @@ for (i in 1:50){
   out = ICA_predict(datan,dataft[,p+1])
   out$shaps = organize_shaps(out$scores,Xpt,dataft[,p+1])
   ICA_res[[i]]$time = (proc.time() - ptm)[3]
-  ICA_res[[i]]$RBO = eval_RBO(shapsT,out)
   ICA_res[[i]]$RMSE = sqrt(mean((out$shaps-shapsT)^2))
   ICA_res[[i]]$shaps = out$shaps
   
