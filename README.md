@@ -22,7 +22,7 @@ Generate the grouth truth DAG with 10 variables and an expected neighborhood siz
 Generate ten thousand samples from the DAG:
 > dataAll = sample_NB_DAG_r(10000, DAG)
 
-Run RCINB:
+Run RCI-NB:
 > out = RCI_NB(data$data,DAG$Y,data$C,data$Xp)
 
 Print expected Shapley values:
