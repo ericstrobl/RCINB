@@ -1,0 +1,11 @@
+Package: RCINB
+Type: Package
+Title: Root Causal Inference with Negative Binomials
+Version: 0.1.0
+Author: Anonymous
+Maintainer: Anonymous <anonymous@gmail.com>
+Description: See README
+Depends: pcalg, xgboost, rootSolve, independence, treeshap, RANN, gtools
+License: CC BY-NC 4.0
+Encoding: UTF-8
+LazyData: true
