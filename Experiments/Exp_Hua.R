@@ -16,7 +16,7 @@ p = ncol(data)
 for (i in 1:50){
   print(i)
   
-  shapsT = RCI_NBC2_r_G(cbind(data,Y),ncol(data)+1,C/length(C),as.matrix(Xp),Gtr=Gtr)$shaps
+  shapsT = RCI_NB_G(cbind(data,Y),ncol(data)+1,C/length(C),as.matrix(Xp),Gtr=Gtr)$shaps
 
   ib = sample(1:n,n,replace=TRUE)
   dataft = cbind(data[ib,],Y[ib])
