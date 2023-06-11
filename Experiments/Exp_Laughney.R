@@ -67,11 +67,11 @@ nrep = 50
 res_mat = matrix(0,nrep,5)
 for (t in 1:nrep){
 
-  res_mat[t,1] = RCINB_res[[t]]$time
-  res_mat[t,2] = RCI_res[[t]]$time
-  res_mat[t,3] = ICA_res[[t]]$time
-  res_mat[t,4] = GRCI_ANM_res[[t]]$time
-  res_mat[t,5] = GRCI_HNM_res[[t]]$time
+  res_mat[t,1] = RCINB_res[[t]]$RMSE
+  res_mat[t,2] = RCI_res[[t]]$RMSE
+  res_mat[t,3] = ICA_res[[t]]$RMSE
+  res_mat[t,4] = GRCI_ANM_res[[t]]$RMSE
+  res_mat[t,5] = GRCI_HNM_res[[t]]$RMSE
 
   # res_mat[t,1] = RCINB_res[[t]]$time
   # res_mat[t,2] = RCI_res[[t]]$time
